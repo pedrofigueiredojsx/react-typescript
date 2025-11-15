@@ -7,7 +7,7 @@ const Vendas = () => {
 
   if (data === null) return null
   return (
-    <div>
+    <div className='vendas'>
       {data.map((venda) => (
         <li key={venda.id}>
           <VendaItem venda={venda} />
