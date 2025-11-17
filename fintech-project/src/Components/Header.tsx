@@ -2,9 +2,20 @@ import React from 'react'
 import { useData } from '../Context/DataContext'
 import DateRange from './DateRange'
 import Meses from './Meses'
+import { useLocation } from 'react-router-dom'
 
 const Header = () => {
   const [title, setTitle] = React.useState('Resumo')
+  const localtion = useLocation()
+  React.useEffect(() => {
+    if (localtion.pathname == '/') {
+      setTitle('Resumo')
+      document.title = 'Fintech | Resumo'
+    } else if (localtion.pathname == '/vendas') {
+      setTitle('Vendas')
+      document.title = 'Fintech | Vendas'
+    }
+  }, [localtion])
 
   return (
     <header className='mb'>
